@@ -5,6 +5,7 @@
 npm install or yarn install // in case you are using yarn
 npm start // this will start dev server which is proxying to backend api
 ```
+![alt text](https://raw.githubusercontent.com/swapnilmishra/sudoku/master/screenshot/screen.gif "Demo run screenshot")
 
 All the source code is in [src directory](https://github.com/swapnilmishra/sudoku/tree/master/src) with [index.js](https://github.com/swapnilmishra/sudoku/blob/master/src/index.js) being the entry file.
 
