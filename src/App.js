@@ -4,7 +4,6 @@ import Sudoku from './SudokuComponent'
 import Loader from './loader'
 import Snackbar from 'material-ui/Snackbar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { ActionCreators } from 'redux-undo';
 
 import { connect } from 'react-redux'
 
@@ -31,8 +30,6 @@ class App extends Component {
     const loaderEl = this.state.showLoader ? <MuiThemeProvider><Loader/></MuiThemeProvider> : ''
     return (
       <div className="grid grid-pad" id="gridRoot">
-        <button onClick={this.props.undoState.bind(this)}>Undo</button>
-        <button onClick={this.props.redoState.bind(this)}>Redo</button>
         {loaderEl}
         <MuiThemeProvider>
           <Snackbar
@@ -75,22 +72,14 @@ class App extends Component {
 
 const mapStoreToProps = (store) => {
     return {
-        snackBarData : store.snackBarData.present,
-        loaderData : store.loaderData.present
+        snackBarData : store.snackBarData,
+        loaderData : store.loaderData
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        unsetSnackData : () => {
-          dispatch({type: 'HIDE_SNACKBAR'})
-        },
-        undoState : () => {
-          dispatch(ActionCreators.undo())
-        },
-        redoState : () => {
-          dispatch(ActionCreators.redo())
-        }
+        unsetSnackData : () => dispatch({type: 'HIDE_SNACKBAR'})
     };
 }
 

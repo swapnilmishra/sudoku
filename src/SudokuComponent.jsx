@@ -62,8 +62,8 @@ class Sudoku extends Component{
 
 const mapStoreToProps = (store) => {
     return {
-        sudokuData : store.sudokuData.present,
-        sudokuErrorData : store.sudokuErrorData.present
+        sudokuData : store.sudokuData,
+        sudokuErrorData : store.sudokuErrorData
     };
 }
 

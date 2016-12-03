@@ -24,10 +24,7 @@ export default function verifyCombinations(sudokuBoard, moveRow=0,moveColumn=0,m
         if(json.gameOver){
           message = 'Wohoo Congrats, you won. Go and have a beer now!!'
         }
-        dispatch({
-          type : 'SHOW_SNACKBAR',
-          message 
-        })
+        dispatch({type : 'SHOW_SNACKBAR',message})
       })
       .catch((error)=>{})
 

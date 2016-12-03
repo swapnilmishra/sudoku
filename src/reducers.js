@@ -10,7 +10,7 @@ function getInitialState(){
     return arr;
 }
 
-const initialState = getInitialState()
+export const initialState = getInitialState()
 
 export function sudokuReducer(state=initialState,action){
 
