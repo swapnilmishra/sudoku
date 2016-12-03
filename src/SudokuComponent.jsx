@@ -50,14 +50,20 @@ class Sudoku extends Component{
     handleInputChange(event){
         const el = event.target
         let value = el.value
-        // if(value === '') value=0;
-        if(!(/[0-9]{1}/.test(value))){
+        if(value === '') {
+            value=0
+        }
+        else if(!(/[1-9]{1}/.test(value))){
             this.props.showMessage('You can only enter numbers between 1-9')
             return;
         }
         const colIndex = el.getAttribute('data-colindex')
         const rowIndex = el.getAttribute('data-rowindex')
         const nextData = this.getChangedSudokuData(rowIndex,colIndex,value)
+        if(value === 0){
+            this.props.setLocalData(rowIndex,colIndex,value)
+            return;
+        }
         this.props.handleInputChange(nextData,rowIndex,colIndex,value,this)
     }
 
@@ -90,7 +96,8 @@ const mapDispatchToProps = (dispatch) => {
         .catch(()=>{
             dispatch({type: 'HIDE_LOADER'})
         });
-        
+    },
+    setLocalData(moveRow=0,moveColumn=0,moveValue=0){
         dispatch({type: 'SETCOMBINATION',moveRow,moveColumn,moveValue})
     },
     handleInputFocusChange(el){

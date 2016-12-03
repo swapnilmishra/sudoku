@@ -1,22 +1,6 @@
-function getInitialState(){
-    let arr=[];
-    for(let i=0; i<9; i++){
-        let tempArray=[];
-        for(let i=0; i<9; i++){
-            tempArray.push(0)
-        }
-        arr.push(tempArray);
-    }
-    return arr;
-}
+import getInitialState from './Init'
 
 export const initialState = getInitialState()
-// const initialCommonState = {
-//     focussedEl : null,
-//     moveRow:0,
-//     moveColumn:0,
-//     moveValue:0
-// }
 
 export const commonState = function(state={focussedEl : null},action){
     switch(action.type){
