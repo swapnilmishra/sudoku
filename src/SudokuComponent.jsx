@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import verifyCombinations from './api'
+import verifyCombinations from './Api'
 
 class Sudoku extends Component{
     
@@ -34,9 +34,12 @@ class Sudoku extends Component{
                     <div className={cls}>
                         <input type="text" 
                         value={val || ''}
+                        maxLength="1"
+                        pattern="[0-9]"
                         data-rowindex={rowIndex} 
                         data-colindex={colIndex}
                         onChange={this.handleInputChange.bind(this)}
+                        onFocus={this.handleInputFocusChange.bind(this)}
                         />
                     </div>
                 );
@@ -47,11 +50,19 @@ class Sudoku extends Component{
     handleInputChange(event){
         const el = event.target
         let value = el.value
-        if(value === '') value=0;
+        // if(value === '') value=0;
+        if(!(/[0-9]{1}/.test(value))){
+            this.props.showMessage('You can only enter numbers between 1-9')
+            return;
+        }
         const colIndex = el.getAttribute('data-colindex')
         const rowIndex = el.getAttribute('data-rowindex')
         const nextData = this.getChangedSudokuData(rowIndex,colIndex,value)
         this.props.handleInputChange(nextData,rowIndex,colIndex,value,this)
+    }
+
+    handleInputFocusChange(event){
+        this.props.handleInputFocusChange(event.target)
     }
 
     getChangedSudokuData(rowIndex,colIndex,value){
@@ -63,13 +74,14 @@ class Sudoku extends Component{
 const mapStoreToProps = (store) => {
     return {
         sudokuData : store.sudokuData,
-        sudokuErrorData : store.sudokuErrorData
+        sudokuErrorData : store.sudokuErrorData,
+        commonState : store.commonState
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleInputChange: (sudokuData, moveRow=0,moveColumn=0,moveValue=0,ref) => {
+    handleInputChange(sudokuData, moveRow=0,moveColumn=0,moveValue=0){
         dispatch({type: 'SHOW_LOADER'})
         dispatch(verifyCombinations(sudokuData, moveRow,moveColumn,moveValue))
         .then(()=>{
@@ -80,6 +92,12 @@ const mapDispatchToProps = (dispatch) => {
         });
         
         dispatch({type: 'SETCOMBINATION',moveRow,moveColumn,moveValue})
+    },
+    handleInputFocusChange(el){
+        dispatch({type: 'SET_FOCUSSED_ELEMENT', focussedEl: el})
+    },
+    showMessage(message){
+        dispatch({type:'SHOW_SNACKBAR',message})
     }
   }
 }

@@ -62,3 +62,66 @@ body{
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 10;
 }
+.sidebar {
+    position: fixed;
+    color: #fff;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #000;
+    width: 400px;
+}
+
+.app-title{
+  width: 100px;
+  margin: 0 auto;
+}
+
+.sukoku-numbers-list{
+  margin-top: 70px;
+  color: #fff;
+  list-style: none;
+}
+
+.sudoku-numbers {
+    display: inline-block;
+    margin-left: 45px;
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    border: 1px solid;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sudoku-numbers:hover{
+  background-color: #dd5558;
+}
+
+.btn-container {
+    position: absolute;
+    bottom: 70px;
+    margin-left: 20px;
+}
+.btn{
+    border: 1px solid;
+    padding: 7px 30px 7px;
+    background-color: #000;
+    color: #fff;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.btn.red{
+  background: #dd5558;
+}
+
+.timer{
+    color: rgb(255, 255, 255);
+    width: 228px;
+    margin: 0 auto;
+    margin-top: 70px;
+    text-align: center;
+    font-size: 22px;
+}

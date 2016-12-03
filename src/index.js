@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import thunkMiddleware from 'redux-thunk'
 import { createStore,applyMiddleware,combineReducers,compose } from 'redux'
-import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer} from './reducers'
+import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer,commonState} from './reducers'
 
 import App from './App';
 
@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
   sudokuData : sudokuReducer,
   snackBarData : snackBarReducer,
   loaderData : loaderReducer,
-  sudokuErrorData : sudokuErrorReducer
+  sudokuErrorData : sudokuErrorReducer,
+  commonState
 })
 
 injectTapEventPlugin();

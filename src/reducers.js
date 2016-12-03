@@ -11,6 +11,21 @@ function getInitialState(){
 }
 
 export const initialState = getInitialState()
+// const initialCommonState = {
+//     focussedEl : null,
+//     moveRow:0,
+//     moveColumn:0,
+//     moveValue:0
+// }
+
+export const commonState = function(state={focussedEl : null},action){
+    switch(action.type){
+        case 'SET_FOCUSSED_ELEMENT':
+            return Object.assign({},{focussedEl : action.focussedEl})
+        default:
+            return state;
+    }
+}
 
 export function sudokuReducer(state=initialState,action){
 
@@ -19,6 +34,13 @@ export function sudokuReducer(state=initialState,action){
             const nextState = state.concat([]);
             nextState[parseInt(action.moveRow,10)][parseInt(action.moveColumn,10)] = parseInt(action.moveValue,10);
             return nextState;
+
+        case 'SET_BOARD_DATA':
+            return action.boardData.concat([]);
+
+        case 'CLEAR_BOARD_DATA':
+            const init = getInitialState()
+            return init.concat([]);
         
         default:
             return state;

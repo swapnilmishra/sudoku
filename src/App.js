@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Sudoku from './SudokuComponent'
-import Loader from './loader'
+import Sidebar from './Sidebar'
+import Loader from './Loader'
 import Snackbar from 'material-ui/Snackbar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -43,6 +44,7 @@ class App extends Component {
         showLoader={this.showLoader.bind(this)}
         hideLoader={this.hideLoader.bind(this)}
         showSnack={this.showSnack.bind(this)}/>
+        <Sidebar/>
       </div>
     );
   }

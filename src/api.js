@@ -20,7 +20,8 @@ export default function verifyCombinations(sudokuBoard, moveRow=0,moveColumn=0,m
       })
       .then(response => response.json())
       .then((json) => {
-        let message = 'Awesome, keep going you are on right track!!' 
+        let message = 'Awesome, keep going you are on right track!!'
+        dispatch({type:'SET_BOARD_DATA',boardData:json.board})
         if(json.gameOver){
           message = 'Wohoo Congrats, you won. Go and have a beer now!!'
         }
@@ -46,7 +47,7 @@ function handleErrors(response,dispatch){
         break;
       
       case 400:
-        const error = 'Please check if the input you have given are correct'
+        const error = 'You can only enter numbers between 1-9'
         dispatch({type : 'SHOW_SNACKBAR',message : error})
         throw new Error(error)
       
