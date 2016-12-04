@@ -4,6 +4,7 @@
 ```javascript
 npm install or yarn install // in case you are using yarn
 npm start // this will start dev server which is proxying to backend api
+npm run test // run few basic tests using jest
 ```
 ![alt text](https://raw.githubusercontent.com/swapnilmishra/sudoku/master/screenshot/screen.gif "Demo run screenshot")
 
