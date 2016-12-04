@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import verifyCombinations from './Api'
+import verifyCombinations from './api'
 
 class Sidebar extends Component{
     constructor(props){

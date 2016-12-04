@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Sudoku from './SudokuComponent'
 import Sidebar from './Sidebar'
-import Loader from './Loader'
+import Loader from './loader'
 import Snackbar from 'material-ui/Snackbar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
