@@ -2,6 +2,10 @@ import getInitialState from './Init'
 
 export const initialState = getInitialState()
 
+/*
+** Common state which for now is being used to get the focussed position of the board
+** so that if user hits number button, corresponding number can be filled there
+*/
 export const commonState = function(state={focussedEl : null},action){
     switch(action.type){
         case 'SET_FOCUSSED_ELEMENT':
@@ -11,6 +15,8 @@ export const commonState = function(state={focussedEl : null},action){
     }
 }
 
+
+// Main sudoku board state contains board array
 export function sudokuReducer(state=initialState,action){
 
     switch(action.type){
@@ -31,6 +37,7 @@ export function sudokuReducer(state=initialState,action){
     }
 }
 
+// This is to control snackbar behavior 
 export function snackBarReducer(state={showSnackbar:false,snackMessage:"Succes"},action){
     switch(action.type){
         case 'SHOW_SNACKBAR':
@@ -50,6 +57,7 @@ export function snackBarReducer(state={showSnackbar:false,snackMessage:"Succes"}
     }
 }
 
+// This is to control loader behavior
 export function loaderReducer(state={showLoader:false},action){
     switch(action.type){
         case 'SHOW_LOADER': 
@@ -67,6 +75,10 @@ export function loaderReducer(state={showLoader:false},action){
     }
 }
 
+/*
+** This is to control error behavior after calling api, based on the values here
+** appropriate board element will show error(in red)
+*/
 export function sudokuErrorReducer(state={col:-1,row:-1},action){
     switch(action.type){
         case 'SET_ERROR':

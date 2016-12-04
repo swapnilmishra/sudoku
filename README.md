@@ -14,7 +14,7 @@ All the source code is in [src directory](https://github.com/swapnilmishra/sudok
 
 * [Create react app](https://github.com/facebookincubator/create-react-app) to create boilerplate which comes with [Babel](babeljs.io) and [Webpack](https://webpack.github.io).
 * [ReactJS](https://facebook.github.io/react) for View and [Redux](https://github.com/reactjs/redux) for state management.
-* CSS was handrolled.
+* [Material ui loader and snackbar](www.material-ui.com) are used, rest of the CSS was handrolled.
 
 ## Initial state
 Right now it uses a fixed set/state for inital is data which [predefined statically](https://github.com/swapnilmishra/sudoku/blob/master/src/Init.js) for now but can be generated if required.

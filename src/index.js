@@ -16,8 +16,10 @@ const rootReducer = combineReducers({
   commonState
 })
 
+// requirement for material ui
 injectTapEventPlugin();
 
+// debugging REDUX state made easy only required for dev purpose and should be removed for production build
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(
   rootReducer,

@@ -17,13 +17,17 @@ class Sudoku extends Component{
     render(){
         return(
             <div>
-                {this.createComponent(this.props)}
+                {this.createComponent()}
             </div>    
         );    
     }
 
+    //Initial state of the board is passed via props.sudokuData and the board is formed using it
     createComponent(){
-        console.log()
+        /* 
+        ** Check if there was an error after we made call to api
+        ** if yes set elements class as error
+        */
         const {row,col} = this.sudokuErrorData;
         return (this.props.sudokuData.map( (currVal,rowIndex) =>{
             return currVal.map((val,colIndex)=>{
@@ -50,9 +54,14 @@ class Sudoku extends Component{
     handleInputChange(event){
         const el = event.target
         let value = el.value
+        /* 
+        ** Handle case when user removes data from the field we set the data
+        ** as 0 means no data in our case. See value={val || ''} in createComponent
+        */
         if(value === '') {
             value=0
         }
+        // validation
         else if(!(/[1-9]{1}/.test(value))){
             this.props.showMessage('You can only enter numbers between 1-9')
             return;
@@ -64,13 +73,21 @@ class Sudoku extends Component{
             this.props.setLocalData(rowIndex,colIndex,value)
             return;
         }
-        this.props.handleInputChange(nextData,rowIndex,colIndex,value,this)
+        this.props.handleInputChange(nextData,rowIndex,colIndex,value,this) // dispatch api calls and other actions
     }
 
+    /* 
+    ** Set the current focussed element to store
+    ** so that if user hits number button, corresponding number can be filled there
+    */
     handleInputFocusChange(event){
         this.props.handleInputFocusChange(event.target)
     }
 
+    /*
+    ** Helper function to udate the state locally, before api finishes so that number is shown
+    ** we set the updated state after the api finishes and show error if any
+    */
     getChangedSudokuData(rowIndex,colIndex,value){
         this.sudokuData[parseInt(rowIndex,10)][parseInt(colIndex,10)] = parseInt(value,10);
         return this.sudokuData;

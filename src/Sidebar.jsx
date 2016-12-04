@@ -56,7 +56,6 @@ class Sidebar extends Component{
     }
 
     getMinutesAndHours(milliseconds){
-            // let numminutes = Math.floor((Math.floor(milliseconds/1000))/60)
             let numseconds = Math.floor(milliseconds/1000)
             let numminutes = Math.floor(numseconds/60)
             let hours = Math.floor(numminutes/60);
@@ -80,7 +79,11 @@ class Sidebar extends Component{
             );
         })
     }
-
+    
+    /* 
+    ** Get the active element from commonState and set the number on it
+    ** in case there is no active element show snack message
+    */
     handleNumberClick(event){
         const focussedEl = this.props.commonState.focussedEl
         const el = event.target;
@@ -90,13 +93,17 @@ class Sidebar extends Component{
             const rowIndex = focussedEl.getAttribute('data-rowindex')
             const nextData = this.getChangedSudokuData(rowIndex,colIndex,value)
             focussedEl.value = value;
-            this.props.handleNumberClick(nextData,rowIndex,colIndex,value)
+            this.props.handleNumberClick(nextData,rowIndex,colIndex,value) // dispatch api calls and other actions
         }
         else {
             this.props.showMessage('You would need to select a block then click on number')
         }
     }
     
+    /* 
+    ** Helper function to udate the state locally, before api finishes so that number is shown
+    ** we set the updated state after the api finishes and show error if any
+    */
     getChangedSudokuData(rowIndex,colIndex,value){
         this.sudokuData[parseInt(rowIndex,10)][parseInt(colIndex,10)] = parseInt(value,10);
         return this.sudokuData;
