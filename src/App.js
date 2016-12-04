@@ -40,10 +40,7 @@ class App extends Component {
             onRequestClose={this.handleRequestClose.bind(this)}
           />
         </MuiThemeProvider>
-        <Sudoku 
-        showLoader={this.showLoader.bind(this)}
-        hideLoader={this.hideLoader.bind(this)}
-        showSnack={this.showSnack.bind(this)}/>
+        <Sudoku/>
         <Sidebar/>
       </div>
     );
