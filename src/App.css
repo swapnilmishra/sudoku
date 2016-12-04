@@ -10,6 +10,10 @@ body{
   box-sizing: border-box;
 }
 
+input{
+  border: none;
+}
+
 [class*='col-'] {
   float: left;
 }
@@ -83,6 +87,10 @@ body{
   list-style: none;
 }
 
+.sudoku-el{
+  border: 1px solid #dbd9d9;
+}
+
 .sudoku-numbers {
     display: inline-block;
     margin-left: 45px;
@@ -124,4 +132,22 @@ body{
     margin-top: 70px;
     text-align: center;
     font-size: 22px;
+}
+
+@media screen and (max-width:970px) {
+ .sidebar{
+   display: none;
+ }
+ #gridRoot{
+   margin: 0 auto;
+ }
+}
+
+@media screen and (max-width:970px) {
+ .sidebar{
+   display: none;
+ }
+ #gridRoot{
+   margin: 0 auto;
+ }
 }
