@@ -121,8 +121,11 @@ input{
     margin-left: 50px;
     cursor: pointer;
 }
-.btn.red{
+.btn.red:hover{
   background: #dd5558;
+}
+.btn.red{
+  background: #db474a;
 }
 
 .timer{

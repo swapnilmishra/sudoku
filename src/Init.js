@@ -11,14 +11,6 @@ let sudokuData =  [
 ]
 
 export default function getInitialState(){
-    // let arr=[];
-    // for(let i=0; i<9; i++){
-    //     let tempArray=[];
-    //     for(let i=0; i<9; i++){
-    //         tempArray.push(0)
-    //     }
-    //     arr.push(tempArray);
-    // }
-    // return arr;
+    // may be generate the data at some point of time which is why the function
     return sudokuData;
 }
