@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk'
 import { createStore,applyMiddleware,combineReducers,compose } from 'redux'
-import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer,commonState} from './reducers'
+import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer,commonState} from './Reducers'
 import { Provider } from 'react-redux'
 import App from './App';
 

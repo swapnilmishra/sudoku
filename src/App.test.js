@@ -4,7 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import { createStore,applyMiddleware,combineReducers } from 'redux'
-import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer,commonState} from './reducers'
+import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer,commonState} from './Reducers'
 import getInitData from './Inittest';
 
 const rootReducer = combineReducers({
