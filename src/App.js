@@ -34,7 +34,6 @@ class App extends Component {
         {loaderEl}
         <MuiThemeProvider>
           <Snackbar
-            style={snackStyle}
             open={this.state.snackOpen}
             message={this.state.snackMessage}
             autoHideDuration={6000}
