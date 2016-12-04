@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import thunkMiddleware from 'redux-thunk'
 import { createStore,applyMiddleware,combineReducers,compose } from 'redux'
 import { sudokuReducer,snackBarReducer,loaderReducer,sudokuErrorReducer,commonState} from './reducers'
