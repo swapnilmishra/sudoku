@@ -1,5 +1,6 @@
 ## How to run
 
+Require latest node version. Have built it with v6.6.0 but other versions should also work.
 
 ```javascript
 npm install or yarn install // in case you are using yarn
@@ -17,4 +18,4 @@ All the source code is in [src directory](https://github.com/swapnilmishra/sudok
 * [Material ui loader and snackbar](www.material-ui.com) are used, rest of the CSS was handrolled.
 
 ## Initial state
-Right now it uses a fixed set/state for inital is data which [predefined statically](https://github.com/swapnilmishra/sudoku/blob/master/src/Init.js) for now but can be generated if required.
+Right now it uses a fixed set/state for inital data which is [predefined statically](https://github.com/swapnilmishra/sudoku/blob/master/src/Init.js) for now but can be generated randomly if required.
