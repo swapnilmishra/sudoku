@@ -15,16 +15,16 @@ export function sudokuReducer(state=initialState,action){
 
     switch(action.type){
         case 'SETCOMBINATION':
-            const nextState = state.concat([]);
+            const nextState = state.concat();
             nextState[parseInt(action.moveRow,10)][parseInt(action.moveColumn,10)] = parseInt(action.moveValue,10);
             return nextState;
 
         case 'SET_BOARD_DATA':
-            return action.boardData.concat([]);
+            return action.boardData.concat();
 
         case 'CLEAR_BOARD_DATA':
             const init = getInitialState()
-            return init.concat([]);
+            return init.concat();
         
         default:
             return state;
