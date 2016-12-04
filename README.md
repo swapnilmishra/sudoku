@@ -1,5 +1,6 @@
 ## How to run
 
+Require latest node version. Have built it with v6.6.0 but other versions should also work.
 
 ```javascript
 npm install or yarn install // in case you are using yarn
